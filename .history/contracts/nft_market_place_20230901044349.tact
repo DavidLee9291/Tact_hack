@@ -1,0 +1,26 @@
+import "@stdlib/deploy";
+import "@stdlib/ownable";
+
+contract NftMarketPlace with Deployable {
+    NftMarketPlace: Address = "EQBtuDYPl6V9hObXfxQWs5uiU7h4h1xDtR_5H_hdLB4RSqHy";
+    owner: Address;
+    init(){
+        self.owner = "";
+    }
+
+    receive(){
+        self.Address;
+    }
+
+     fun saleNft() {
+        let to: Address = "EQCeiC_UTD8nEoyn0ItTSs76rdau95MECFKDM1sjdb6FdcZD";
+        let value: Int = ton("1");
+        send(SendParameters{to: to,
+                value: value,
+                mode: SendIgnoreErrors,
+                bounce: true,
+                body: "Hello, World!".asComment()
+            }
+        );
+    }
+}
